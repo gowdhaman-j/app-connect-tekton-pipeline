@@ -3,7 +3,7 @@ apiVersion: v1
 type: Opaque
 metadata:
   name: kafka-connection-info
-  namespace: eventstreams
+  namespace: cp4i-es
 stringData:
-  bootstrap-server: event-backbone-kafka-bootstrap.eventstreams.svc:9093
+  bootstrap-server: event-backbone-kafka-bootstrap.cp4i-es.svc:9093
   truststore-name: sample-truststore.jks

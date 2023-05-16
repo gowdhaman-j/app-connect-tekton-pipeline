@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/instance: event-backbone
     eventstreams.ibm.com/cluster: event-backbone
   name: appconnect-kafka-user
-  namespace: eventstreams
+  namespace: cp4i-es
 spec:
   authentication:
     type: scram-sha-512

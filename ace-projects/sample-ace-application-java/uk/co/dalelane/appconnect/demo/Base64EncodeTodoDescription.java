@@ -1,4 +1,4 @@
-package uk.co.dalelane.appconnect.demo;
+package uk.co.gowdhaman-j.appconnect.demo;
 
 import java.util.Base64;
 

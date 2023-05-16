@@ -11,59 +11,62 @@ If you just follow these instructions on your existing OpenShift cluster, you wi
 ## Add IBM software to Operator Hub
 
 ```sh
-oc apply -f ibm-catalog-source.yaml
+oc apply -f 0.ibm-catalog-source.yaml
 ```
 
 ## Install operators needed for the demo
 
 ```sh
-oc apply -f operators
+oc apply -f 2.operators
 ```
 
 ## Setup Platform Navigator
 
 ```sh
-oc new-project integration
-oc apply -f ./ibm-entitlement-key.yaml -n integration
-oc apply -f ./cp4i
+oc new-project cp4i-pn
+oc apply -f ./ibm-entitlement-key.yaml -n cp4i-pn
+oc apply -f ./2.cp4i
 ```
+
+
 
 ## Setup Event Streams
 
 ```sh
-oc new-project eventstreams
-oc apply -f ./ibm-entitlement-key.yaml -n eventstreams
-oc apply -f ./kafka
+oc new-project cp4i-es
+oc apply -f ./ibm-entitlement-key.yaml -n cp4i-es
+oc apply -f ./4.kafka
 ```
 
 ## Setup PostgreSQL
 
 ```sh
 oc new-project postgresql
-oc apply -f ./postgresql/db-data.yaml
-oc apply -f ./postgresql/database.yaml
+oc apply -f ./5.postgresql/db-data.yaml
+oc apply -f ./5.postgresql/database.yaml
 ```
 
-## Setup the namespace where the sample ACE demo will run
+## Setup the namespace where the sample ACE demo will run. Also set up the ACE Dashboard
 
 ```sh
 oc new-project ace-demo
 oc apply -f ./ibm-entitlement-key.yaml -n ace-demo
+oc apply -f ./3.appconnect
 ```
 
 ## Submit an HTTP request to the simple ACE flow
 
 ```sh
-curl "http://$(oc get route -nace-demo hello-world-http -o jsonpath='{.spec.host}')/hello"
+curl "http://$(oc get route -n ace-demo hello-world-http -o jsonpath='{.spec.host}')/hello"
 ```
 
 ## Produce a message to the Kafka topic that will trigger the complex ACE flow
 
 ```sh
-BOOTSTRAP=$(oc get eventstreams event-backbone -neventstreams -ojsonpath='{.status.kafkaListeners[1].bootstrapServers}')
-PASSWORD=$(oc get secret -neventstreams appconnect-kafka-user -ojsonpath='{.data.password}' | base64 -d)
-oc get secret -neventstreams event-backbone-cluster-ca-cert -ojsonpath='{.data.ca\.p12}' | base64 -d > ca.p12
-CA_PASSWORD=$(oc get secret -neventstreams event-backbone-cluster-ca-cert -ojsonpath='{.data.ca\.password}' | base64 -d)
+BOOTSTRAP=$(oc get eventstreams event-backbone -n cp4i-es -ojsonpath='{.status.kafkaListeners[1].bootstrapServers}')
+PASSWORD=$(oc get secret -n cp4i-es appconnect-kafka-user -ojsonpath='{.data.password}' | base64 -d)
+oc get secret -n cp4i-es event-backbone-cluster-ca-cert -ojsonpath='{.data.ca\.p12}' | base64 -d > ca.p12
+CA_PASSWORD=$(oc get secret -n cp4i-es event-backbone-cluster-ca-cert -ojsonpath='{.data.ca\.password}' | base64 -d)
 
 echo '{"id": 1, "message": "quick test"}' | kafka-console-producer.sh \
     --bootstrap-server $BOOTSTRAP \

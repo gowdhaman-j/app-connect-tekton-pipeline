@@ -2,13 +2,13 @@ apiVersion: integration.ibm.com/v1beta1
 kind: PlatformNavigator
 metadata:
   name: navigator
-  namespace: integration
+  namespace: cp4i-pn
 spec:
   license:
     accept: true
-    license: L-RJON-CD3JKX
+    license: L-RJON-CJR2RX
   mqDashboard: true
   replicas: 1
   storage:
-    class: ibmc-file-gold-gid
-  version: 2022.2.1
+    class: ocs-storagecluster-cephfs
+  version: 2022.4.1-3

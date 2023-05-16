@@ -4,7 +4,7 @@ metadata:
   labels:
     eventstreams.ibm.com/cluster: event-backbone
   name: todo.updates
-  namespace: eventstreams
+  namespace: cp4i-es
 spec:
   config:
     min.insync.replicas: '1'

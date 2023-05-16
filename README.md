@@ -258,4 +258,4 @@ You can see the versions of what I was running on OpenShift at [./demo-pre-reqs/
 
 ## More info
 
-For help with using this or if you have any questions, please create an issue or <a href="https://github.com/dalelane">contact me</a>.
+For help with using this or if you have any questions, please create an issue or <a href="https://github.com/gowdhaman-j">contact me</a>.

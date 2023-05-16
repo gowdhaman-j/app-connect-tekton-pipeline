@@ -2,13 +2,13 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   labels:
-    operators.coreos.com/ibm-appconnect.openshift-operators: ''
-  name: ibm-appconnect
+    operators.coreos.com/ibm-eventstreams.openshift-operators: ''
+  name: ibm-eventstreams
   namespace: openshift-operators
 spec:
-  channel: v6.0
+  channel: v3.1
   installPlanApproval: Automatic
-  name: ibm-appconnect
+  name: ibm-eventstreams
   source: ibm-operator-catalog
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-appconnect.v6.0.0
+  startingCSV: ibm-eventstreams.v3.1.6

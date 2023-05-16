@@ -17,7 +17,7 @@
       <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="90,90" URLSpecifier="http://not.used.because.url.provided.by.mapping.node" httpMethod="GET" httpVersion="1.1" messageDomainProperty="JSON" messageSetProperty="todo-item.schema.json">
         <translation xmi:type="utility:ConstantString" string="retrieve current todo details"/>
       </nodes>
-      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="290,90" javaClass="uk.co.dalelane.appconnect.demo.Base64EncodeTodoDescription">
+      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="290,90" javaClass="uk.co.gowdhaman-j.appconnect.demo.Base64EncodeTodoDescription">
         <translation xmi:type="utility:ConstantString" string="base64 encode the description"/>
       </nodes>
       <nodes xmi:type="com_ibm_connector_loopback_ComIbmRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="150,170" connectorName="iib-loopback-connector" dataSource="store" object="todos" operation="create" securityIdentity="postgres-creds" timeoutMilliseconds="120000" dataLocation="$Body" outputDataLocation="$OutputRoot" copyToLocalEnv="true" messageDomainProperty="JSON">
