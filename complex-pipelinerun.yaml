@@ -60,11 +60,11 @@ spec:
     - name: credentials-to-update
       value:
         # update connection information for the Kafka cluster
-        - "sample-ace-policies/eventstreams.policyxml TEMPLATE_BOOTSTRAP_SERVER    bootstrap-server kafka-connection-info          eventstreams"
-        - "sample-ace-policies/eventstreams.policyxml TEMPLATE_TRUSTSTORE_FILE     truststore-name  kafka-connection-info          eventstreams"
+        - "sample-ace-policies/eventstreams.policyxml TEMPLATE_BOOTSTRAP_SERVER    bootstrap-server kafka-connection-info          cp4i-es"
+        - "sample-ace-policies/eventstreams.policyxml TEMPLATE_TRUSTSTORE_FILE     truststore-name  kafka-connection-info          cp4i-es"
         # update credentials for connecting to Kafka
-        - "sample-ace-config/setdbparms.txt           TEMPLATE_KAFKA_ES_PASSWORD   password         appconnect-kafka-user          eventstreams"
-        - "sample-ace-config/setdbparms.txt           TEMPLATE_TRUSTSTORE_PASSWORD ca.password      event-backbone-cluster-ca-cert eventstreams"
+        - "sample-ace-config/setdbparms.txt           TEMPLATE_KAFKA_ES_PASSWORD   password         appconnect-kafka-user          cp4i-es"
+        - "sample-ace-config/setdbparms.txt           TEMPLATE_TRUSTSTORE_PASSWORD ca.password      event-backbone-cluster-ca-cert cp4i-es"
         # update connection information for the PostgreSQL database
         - "sample-ace-data-sources/datasources.json   TEMPLATE_POSTGRES_HOST       host             store-pguser-cp4i              postgresql"
         - "sample-ace-data-sources/datasources.json   TEMPLATE_POSTGRES_PORT       port             store-pguser-cp4i              postgresql"
