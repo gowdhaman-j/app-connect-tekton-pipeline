@@ -192,11 +192,11 @@ spec:
     # ########################################################
 
     - name: app-connect-enterprise-version
-      default: "12.0.5.0-r4"
+      default: "12.0.7.0-r5"
     - name: app-connect-enterprise-license
-      default: "L-KSBM-CJ2KWU"
+      default: "L-MSST-58UM6D"
     - name: app-connect-enterprise-base-image
-      default: "cp.icr.io/cp/appc/ace-server-prod@sha256:473bbea96e65025c11c91014ac8dd72641212bd2f5f35d661dca7b3242f4155c"
+      default: "cp.icr.io/cp/appc/ace-server-prod@sha256:c41154c17a30bbbb6e1e4593c965f49ef3c86260e71143b8f33a6fbca277a3b9"
 
     # ########################################################
 
