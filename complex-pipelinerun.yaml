@@ -110,7 +110,7 @@ spec:
     - name: truststore-p12-secret
       value: "event-backbone-cluster-ca-cert"
     - name: truststore-p12-secret-namespace
-      value: "eventstreams"
+      value: "cp4i-es"
     - name: truststore-name
       value: "sample-truststore.jks"
 
